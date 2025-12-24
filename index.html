@@ -3,24 +3,67 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TODO: Set the document title to the name of your application -->
-    <title>Lovable App</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+    <title>Hameed Chohan Law Associates | Premier Legal Services</title>
+    <meta name="description" content="Hameed Chohan Law Associates - Premier legal services in Pakistan with expertise in corporate law, litigation, intellectual property, and regulatory compliance." />
+    <meta name="author" content="Hameed Chohan Law Associates" />
+    <meta name="theme-color" content="#1a1d21" />
 
-    <!-- TODO: Update og:title to match your application name -->
-    <meta property="og:title" content="Lovable App" />
-    <meta property="og:description" content="Lovable Generated Project" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Hameed Chohan Law Associates | Premier Legal Services" />
+    <meta property="og:description" content="Expert legal counsel with decades of experience across corporate law, litigation, and specialized practice areas in Pakistan." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta property="og:locale" content="en_US" />
 
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta name="twitter:title" content="Hameed Chohan Law Associates" />
+    <meta name="twitter:description" content="Premier legal services in Pakistan" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://hcla.pk" />
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LegalService",
+        "name": "Hameed Chohan Law Associates",
+        "alternateName": "HCLA",
+        "description": "Premier legal services firm in Pakistan specializing in corporate law, litigation, intellectual property, and regulatory compliance.",
+        "url": "https://hcla.pk",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "123 Legal District",
+          "addressLocality": "Lahore",
+          "addressRegion": "Punjab",
+          "postalCode": "54000",
+          "addressCountry": "PK"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "31.5204",
+          "longitude": "74.3587"
+        },
+        "telephone": "+92-42-1234567",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "18:00"
+          }
+        ],
+        "priceRange": "$$$$",
+        "areaServed": {
+          "@type": "Country",
+          "name": "Pakistan"
+        }
+      }
+    </script>
   </body>
 </html>

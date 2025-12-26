@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Linkedin, ArrowUpRight } from 'lucide-react';
+import { firm } from '@/content/hcla';
 
 const footerLinks = {
   practice: [
@@ -38,16 +39,16 @@ export function Footer() {
                 </div>
                 <div>
                   <span className="text-sm font-semibold tracking-tight">
-                    Hameed Chohan
+                    {firm.name.split(' ').slice(0, 2).join(' ')}
                   </span>
                   <span className="block text-xs opacity-70 uppercase tracking-widest">
-                    Law Associates
+                    {firm.name.split(' ').slice(2).join(' ')}
                   </span>
                 </div>
               </div>
             </Link>
             <p className="text-sm opacity-80 leading-relaxed mb-6">
-              Premier legal services in Pakistan since 1995. We combine deep expertise
+              Premier legal services in Pakistan since {firm.established}. We combine deep expertise
               with practical solutions for complex legal challenges.
             </p>
             <div className="flex items-center gap-4">
@@ -73,9 +74,9 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     to={link.href}
-                    className="text-sm opacity-80 hover:opacity-100 transition-opacity inline-flex items-center gap-1 group"
+                    className="text-sm opacity-80 hover:opacity-100 transition-opacity inline-flex items-center gap-1 group editorial-link"
                   >
-                    {link.label}
+                    <span>{link.label}</span>
                     <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </Link>
                 </li>
@@ -93,9 +94,9 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     to={link.href}
-                    className="text-sm opacity-80 hover:opacity-100 transition-opacity inline-flex items-center gap-1 group"
+                    className="text-sm opacity-80 hover:opacity-100 transition-opacity inline-flex items-center gap-1 group editorial-link"
                   >
-                    {link.label}
+                    <span>{link.label}</span>
                     <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </Link>
                 </li>
@@ -111,29 +112,29 @@ export function Footer() {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="mailto:info@hcla.pk"
+                  href={`mailto:${firm.contact.email}`}
                   className="text-sm opacity-80 hover:opacity-100 transition-opacity flex items-start gap-3"
                 >
                   <Mail className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                  <span>info@hcla.pk</span>
+                  <span>{firm.contact.email}</span>
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+924212345678"
+                  href={`tel:${firm.contact.phone.replace(/\s/g, '')}`}
                   className="text-sm opacity-80 hover:opacity-100 transition-opacity flex items-start gap-3"
                 >
                   <Phone className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                  <span>+92 42 1234 5678</span>
+                  <span>{firm.contact.phone}</span>
                 </a>
               </li>
               <li>
                 <div className="text-sm opacity-80 flex items-start gap-3">
                   <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
                   <span>
-                    123 Legal District<br />
-                    Gulberg III, Lahore<br />
-                    Punjab, Pakistan
+                    {firm.address.line1}<br />
+                    {firm.address.area}, {firm.address.city}<br />
+                    {firm.address.province}, {firm.address.country}
                   </span>
                 </div>
               </li>
@@ -147,14 +148,14 @@ export function Footer() {
         <div className="container-wide py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-xs opacity-60">
-              {currentYear} Hameed Chohan Law Associates. All rights reserved.
+              {currentYear} {firm.name}. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
               {footerLinks.legal.map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}
-                  className="text-xs opacity-60 hover:opacity-100 transition-opacity"
+                  className="text-xs opacity-60 hover:opacity-100 transition-opacity editorial-link"
                 >
                   {link.label}
                 </Link>

@@ -3,6 +3,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/button';
 import { GsapReveal, GsapParallax } from '@/components/animations';
+import { firm } from '@/content/hcla';
 
 export function FounderSection() {
   return (
@@ -13,12 +14,11 @@ export function FounderSection() {
           <GsapParallax speed={0.2}>
             <div className="relative">
               <div className="aspect-[4/5] bg-primary/5 overflow-hidden">
-                {/* Placeholder for founder image */}
-                <div className="w-full h-full bg-gradient-to-br from-muted to-muted-foreground/10 flex items-end p-8">
-                  <div className="text-muted-foreground/40 text-sm uppercase tracking-widest">
-                    Founder Portrait
-                  </div>
-                </div>
+                <img 
+                  src="/team/abdul-hameed-chohan.jpg" 
+                  alt="Abdul Hameed Chohan"
+                  className="w-full h-full object-cover"
+                />
               </div>
               {/* Decorative element */}
               <div className="absolute -bottom-4 -right-4 w-32 h-32 border-2 border-accent -z-10" />
@@ -34,7 +34,7 @@ export function FounderSection() {
             <div className="w-16 h-0.5 bg-accent mb-8" />
             <p className="text-body text-muted-foreground mb-6">
               With over three decades of legal practice, Hameed Chohan founded HCLA 
-              in 1995 with a singular vision: to provide world-class legal services 
+              in {firm.established} with a singular vision: to provide world-class legal services 
               in Pakistan that rival the best global firms.
             </p>
             <p className="text-body text-muted-foreground mb-8">

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Layout } from '@/components/layout';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -44,7 +43,7 @@ const Contact = () => {
   };
 
   return (
-    <Layout>
+    <>
       {/* Hero */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-background">
         <div className="container-wide">
@@ -272,7 +271,7 @@ const Contact = () => {
           </GsapReveal>
         </div>
       </Section>
-    </Layout>
+    </>
   );
 };
 

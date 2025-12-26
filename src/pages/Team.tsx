@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Layout } from '@/components/layout';
 import { Section } from '@/components/ui/Section';
+import PageHero from '@/components/ui/PageHero';
 import { GsapReveal, GsapStagger } from '@/components/animations';
 import { teamMembers, teamCategories } from '@/data/team';
 import { cn } from '@/lib/utils';
@@ -14,21 +14,11 @@ const Team = () => {
     : teamMembers.filter((member) => member.category === activeCategory);
 
   return (
-    <Layout>
-      {/* Hero */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-background">
-        <div className="container-wide">
-          <GsapReveal>
-            <p className="text-caption mb-4">Our People</p>
-            <h1 className="max-w-3xl mb-6">Meet the Team</h1>
-            <div className="w-24 h-0.5 bg-accent mb-8" />
-            <p className="text-subhead max-w-2xl">
-              Our team combines deep legal expertise with practical business 
-              understanding to deliver exceptional results for our clients.
-            </p>
-          </GsapReveal>
-        </div>
-      </section>
+    <>
+      <PageHero
+        overline="Our People"
+        title="The Team"
+      />
 
       {/* Filters */}
       <Section variant="muted" className="py-8">
@@ -59,14 +49,16 @@ const Team = () => {
               to={`/team/${member.slug}`}
               className="group block"
             >
-              <div className="aspect-[3/4] bg-muted mb-4 overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-br from-muted to-primary/10 flex items-end p-4 group-hover:scale-105 transition-transform duration-500">
-                  <span className="text-xs text-muted-foreground/50 uppercase tracking-widest">
-                    Photo
-                  </span>
-                </div>
+              <div className="aspect-[3/4] bg-muted mb-4 overflow-hidden rounded-sm">
+                <img 
+                  src={member.image} 
+                  alt={member.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
-              <h4 className="text-lg font-semibold mb-1 group-hover:text-accent transition-colors">
+              <h4 className="text-lg font-semibold mb-1 group-hover:text-accent transition-colors duration-300">
                 {member.name}
               </h4>
               <p className="text-sm text-muted-foreground mb-2">{member.title}</p>
@@ -86,7 +78,7 @@ const Team = () => {
           ))}
         </GsapStagger>
       </Section>
-    </Layout>
+    </>
   );
 };
 

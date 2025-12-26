@@ -33,11 +33,11 @@ export function TeamPreview() {
             className="group block"
           >
             <div className="aspect-[3/4] bg-muted mb-4 overflow-hidden">
-              <div className="w-full h-full bg-gradient-to-br from-muted to-primary/10 flex items-end p-4 group-hover:scale-105 transition-transform duration-500">
-                <span className="text-xs text-muted-foreground/50 uppercase tracking-widest">
-                  Photo
-                </span>
-              </div>
+              <img 
+                src={member.image} 
+                alt={member.name}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
             </div>
             <h4 className="text-lg font-semibold mb-1 group-hover:text-accent transition-colors">
               {member.name}

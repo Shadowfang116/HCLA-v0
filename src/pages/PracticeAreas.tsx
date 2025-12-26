@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Layout } from '@/components/layout';
 import { Section } from '@/components/ui/Section';
+import PageHero from '@/components/ui/PageHero';
 import { GsapReveal, GsapStagger } from '@/components/animations';
 import { practiceAreas, practiceAreaCategories } from '@/data/practiceAreas';
 import { Building2, Scale, Lightbulb, Landmark, Home, Shield, ArrowUpRight } from 'lucide-react';
@@ -24,21 +24,11 @@ const PracticeAreas = () => {
     : practiceAreas.filter((area) => area.category === activeCategory);
 
   return (
-    <Layout>
-      {/* Hero */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-background">
-        <div className="container-wide">
-          <GsapReveal>
-            <p className="text-caption mb-4">Expertise</p>
-            <h1 className="max-w-3xl mb-6">Practice Areas</h1>
-            <div className="w-24 h-0.5 bg-accent mb-8" />
-            <p className="text-subhead max-w-2xl">
-              Comprehensive legal services across key practice areas, 
-              delivered by specialists with deep sector expertise.
-            </p>
-          </GsapReveal>
-        </div>
-      </section>
+    <>
+      <PageHero
+        overline="What We Do"
+        title="Practice Areas"
+      />
 
       {/* Filters */}
       <Section variant="muted" className="py-8">
@@ -98,7 +88,7 @@ const PracticeAreas = () => {
           })}
         </GsapStagger>
       </Section>
-    </Layout>
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
 // SEO Metadata Helpers
+import { firm } from '@/content/hcla';
 
 export interface PageMeta {
   title: string;
@@ -8,7 +9,7 @@ export interface PageMeta {
   canonical?: string;
 }
 
-const SITE_NAME = 'Hameed Chohan Law Associates';
+const SITE_NAME = firm.name;
 const DEFAULT_DESCRIPTION = 'Premier legal services in Pakistan with expertise in corporate law, litigation, intellectual property, and regulatory compliance.';
 const DEFAULT_OG_IMAGE = '/og-image.jpg';
 
@@ -41,7 +42,7 @@ export const pageMeta: Record<string, PageMeta> = {
   },
   about: {
     title: 'About Us',
-    description: 'Learn about HCLA\'s history, values, and commitment to excellence in legal services since 1995.',
+    description: `Learn about HCLA's history, values, and commitment to excellence in legal services since ${firm.established}.`,
     keywords: ['about HCLA', 'law firm history', 'legal expertise Pakistan'],
   },
   practiceAreas: {

@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Satoshi Font - Using system font stack with similar characteristics */
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap');
-
 /* Design System for HCLA - Modern Heritage */
 @layer base {
   :root {
@@ -130,8 +127,12 @@
   }
 
   body {
-    @apply bg-background text-foreground font-satoshi antialiased;
-    font-feature-settings: "ss01", "ss02", "cv01";
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: "Inter Variable", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", serif;
   }
 
   /* Typography scale */
@@ -165,7 +166,7 @@
 
   /* Focus states for accessibility */
   :focus-visible {
-    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-background;
+    @apply outline-none ring-1 ring-foreground/20 ring-offset-1 ring-offset-background;
   }
 }
 
@@ -173,6 +174,31 @@
   /* Premium section styling */
   .section-padding {
     @apply py-16 md:py-24 lg:py-32;
+  }
+
+  /* Editorial hover underline reveal */
+  .editorial-link {
+    @apply relative inline-block;
+  }
+
+  .editorial-link::after {
+    @apply absolute bottom-0 left-0 w-0 h-px bg-current opacity-0 transition-all duration-200 ease-out;
+    content: '';
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .editorial-link:hover::after {
+      @apply w-full opacity-100;
+    }
+  }
+
+  /* Section rhythm */
+  .section-heading {
+    @apply mb-8 md:mb-12;
+  }
+
+  .section-content {
+    @apply mt-8 md:mt-12;
   }
 
   .container-narrow {

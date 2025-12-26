@@ -1,4 +1,4 @@
-import { Layout } from '@/components/layout';
+import { NewsTicker } from '@/components/news/NewsTicker';
 import {
   HeroSection,
   ProofStrip,
@@ -11,7 +11,8 @@ import {
 
 const Index = () => {
   return (
-    <Layout>
+    <>
+      <NewsTicker />
       <HeroSection />
       <ProofStrip />
       <PracticeAreasPreview />
@@ -19,7 +20,7 @@ const Index = () => {
       <TeamPreview />
       <UpdatesPreview />
       <CTASection />
-    </Layout>
+    </>
   );
 };
 

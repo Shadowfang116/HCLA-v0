@@ -22,7 +22,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        satoshi: ["Satoshi", "system-ui", "-apple-system", "sans-serif"],
+        sans: ["Inter Variable", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Arial", "sans-serif"],
+        serif: ["Playfair Display", "serif"],
       },
       colors: {
         border: "hsl(var(--border))",

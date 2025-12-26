@@ -1,5 +1,4 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { Layout } from '@/components/layout';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/button';
 import { GsapReveal, GsapStagger } from '@/components/animations';
@@ -32,7 +31,7 @@ const PracticeAreaDetail = () => {
   const Icon = iconMap[area.icon] || Building2;
 
   return (
-    <Layout>
+    <>
       {/* Hero */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-background">
         <div className="container-wide">
@@ -147,7 +146,7 @@ const PracticeAreaDetail = () => {
           </GsapReveal>
         </div>
       </section>
-    </Layout>
+    </>
   );
 };
 

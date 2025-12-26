@@ -1,9 +1,10 @@
-import { Layout } from '@/components/layout';
 import { Section } from '@/components/ui/Section';
+import PageHero from '@/components/ui/PageHero';
 import { Button } from '@/components/ui/button';
 import { GsapReveal, GsapStagger, GsapParallax } from '@/components/animations';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { firm } from '@/content/hcla';
 
 const values = [
   {
@@ -25,7 +26,7 @@ const values = [
 ];
 
 const timeline = [
-  { year: '1995', title: 'Foundation', description: 'HCLA established in Lahore with a focus on corporate law.' },
+  { year: String(firm.established), title: 'Foundation', description: 'HCLA established in Lahore with a focus on corporate law.' },
   { year: '2000', title: 'Expansion', description: 'Opened litigation practice and expanded team to 10 lawyers.' },
   { year: '2008', title: 'Recognition', description: 'First major international directory ranking received.' },
   { year: '2015', title: 'Specialization', description: 'Launched dedicated IP and technology practice.' },
@@ -35,24 +36,11 @@ const timeline = [
 
 const About = () => {
   return (
-    <Layout>
-      {/* Hero */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-background">
-        <div className="container-wide">
-          <GsapReveal>
-            <p className="text-caption mb-4">About Us</p>
-            <h1 className="max-w-3xl mb-6">
-              Three Decades of Legal Excellence
-            </h1>
-            <div className="w-24 h-0.5 bg-accent mb-8" />
-            <p className="text-subhead max-w-2xl">
-              Since 1995, Hameed Chohan Law Associates has been at the forefront 
-              of legal practice in Pakistan, combining deep expertise with 
-              practical solutions for complex challenges.
-            </p>
-          </GsapReveal>
-        </div>
-      </section>
+    <>
+      <PageHero
+        overline="About the Firm"
+        title={firm.name}
+      />
 
       {/* Story Section */}
       <Section variant="muted">
@@ -83,11 +71,13 @@ const About = () => {
             <GsapParallax speed={0.15}>
               <div className="relative">
                 <div className="aspect-[4/3] bg-primary/5 overflow-hidden">
-                  <div className="w-full h-full bg-gradient-to-br from-muted to-primary/10 flex items-center justify-center">
-                    <span className="text-muted-foreground/30 text-sm uppercase tracking-widest">
-                      Office Image
-                    </span>
-                  </div>
+                  <img 
+                    src="/images/about-modern-office-lobby.jpg" 
+                    alt="Modern office lobby"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <div className="absolute -bottom-4 -left-4 w-24 h-24 border-2 border-accent -z-10" />
               </div>
@@ -151,12 +141,14 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <GsapReveal direction="left">
             <div className="relative">
-              <div className="aspect-[3/4] bg-muted overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-br from-muted to-primary/10 flex items-end p-8">
-                  <span className="text-muted-foreground/30 text-sm uppercase tracking-widest">
-                    Founder Portrait
-                  </span>
-                </div>
+              <div className="aspect-[3/4] bg-muted overflow-hidden rounded-sm">
+                <img 
+                  src="/team/abdul-hameed-chohan.jpg" 
+                  alt="Abdul Hameed Chohan"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div className="absolute -bottom-4 -right-4 w-32 h-32 border-2 border-accent -z-10" />
             </div>
@@ -171,7 +163,7 @@ const About = () => {
                 Hameed Chohan is a distinguished legal practitioner with over three 
                 decades of experience in Pakistani law. He holds an LL.M. from Harvard 
                 Law School and began his career with leading international firms before 
-                founding HCLA in 1995.
+                founding HCLA in {firm.established}.
               </p>
               <p>
                 His practice focuses on complex corporate transactions, high-stakes 
@@ -215,7 +207,7 @@ const About = () => {
           </GsapReveal>
         </div>
       </section>
-    </Layout>
+    </>
   );
 };
 
